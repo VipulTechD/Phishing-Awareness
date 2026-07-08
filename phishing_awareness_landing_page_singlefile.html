@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Awareness Notification</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 850px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #0b3d91, #0056d6);
+      color: white;
+      padding: 35px 25px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    .content {
+      padding: 35px 30px;
+    }
+
+    .alert-box {
+      background: #fff4e5;
+      border-left: 6px solid #ff9800;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    .alert-box strong {
+      color: #c96b00;
+    }
+
+    .info-box {
+      background: #eef5ff;
+      border-left: 6px solid #0056d6;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    .tips {
+      margin-top: 25px;
+    }
+
+    .tips h3 {
+      margin-bottom: 15px;
+      color: #0b3d91;
+    }
+
+    .tips ul {
+      padding-left: 20px;
+      line-height: 1.9;
+    }
+
+    .status-card {
+      margin-top: 30px;
+      background: #f7fff8;
+      border: 1px solid #cde8d1;
+      padding: 22px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .status-icon {
+      font-size: 50px;
+      margin-bottom: 12px;
+    }
+
+    .status-card h2 {
+      color: #1b7f3b;
+      margin-bottom: 10px;
+    }
+
+    .status-card p {
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .awareness-score {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background: #ddd;
+      border-radius: 30px;
+      overflow: hidden;
+      height: 22px;
+      margin-top: 12px;
+    }
+
+    .progress {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #28a745, #0b8f3c);
+      transition: width 2s ease;
+    }
+
+    .footer {
+      background: #f1f4f8;
+      padding: 18px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .footer strong {
+      color: #0b3d91;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #0056d6;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(max-width: 768px) {
+      .header h1 {
+        font-size: 25px;
+      }
+
+      .content {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Security Awareness Exercise</h1>
+      <p>This was an internal phishing simulation conducted by the IT & Security Team.</p>
+      <div class="badge">Cyber Security Awareness Program</div>
+    </div>
+
+    <div class="content">
+
+      <div class="alert-box">
+        <strong>Important:</strong> You clicked on a simulated phishing email link used for internal security awareness training.
+      </div>
+
+      <div class="info-box">
+        The purpose of this exercise is to help employees identify phishing attacks, suspicious emails, and social engineering attempts commonly used by attackers.
+        <br><br>
+        No passwords or sensitive information were collected during this awareness activity.
+      </div>
+
+      <div class="status-card">
+        <div class="status-icon">🛡️</div>
+        <h2>Awareness Training Completed</h2>
+        <p>
+          Your interaction has been recorded as part of the organization's cyber security awareness program.
+          Please review the security tips below to improve phishing detection and email safety.
+        </p>
+      </div>
+
+      <div class="tips">
+        <h3>How to Identify Phishing Emails</h3>
+        <ul>
+          <li>Verify the sender email address carefully.</li>
+          <li>Do not click suspicious links or unexpected attachments.</li>
+          <li>Check for spelling mistakes and urgent language.</li>
+          <li>Never share passwords or MFA codes through email.</li>
+          <li>Report suspicious emails to the IT Security Team immediately.</li>
+          <li>Always verify requests involving payments or sensitive data.</li>
+        </ul>
+      </div>
+
+      <div class="awareness-score">
+        <h3>Security Awareness Status</h3>
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <p id="statusText" style="margin-top:12px; font-weight:bold; color:#1b7f3b;">
+          Loading awareness status...
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      © 2026 <strong>IT Security Team</strong> | Internal Cyber Security Awareness Program
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      const progress = document.getElementById('progress');
+      const statusText = document.getElementById('statusText');
+
+      setTimeout(() => {
+        progress.style.width = '100%';
+        statusText.innerHTML = 'Awareness Module Successfully Completed';
+      }, 600);
+
+      console.log('Internal phishing awareness page loaded successfully.');
+    };
+  </script>
+
+</body>
+</html>
